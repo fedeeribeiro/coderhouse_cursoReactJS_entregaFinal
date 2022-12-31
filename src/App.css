@@ -1,0 +1,27 @@
+.navbar-css{
+    background-color: #333333;
+    overflow-x: hidden;
+}
+
+.item-list-container{
+    display: flex;
+    padding: 3rem;
+    justify-content: space-around;
+}
+
+.item-detail-container{
+    display: flex;
+    padding: 3rem;
+    justify-content: center;
+}
+
+.card-item-detail{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card-body-item-detail{
+    display: grid;
+    grid-column: 2 / 4;
+    grid-template-columns: repeat(2, 1fr);
+}
