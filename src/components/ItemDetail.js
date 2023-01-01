@@ -1,5 +1,14 @@
 import { useContext, useState } from 'react';
-import Card from 'react-bootstrap/Card';
+import {
+    MDBBtn,
+    MDBCard,
+    MDBCardTitle,
+    MDBCardText,
+    MDBCardBody,
+    MDBCardImage,
+    MDBRow,
+    MDBCol
+  } from 'mdb-react-ui-kit';
 import { CartContext } from './CartContext';
 import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
@@ -10,7 +19,7 @@ const ItemDetail = ({ item }) => {
     const { addToCart } = useContext(CartContext);
 
     const onAdd = (quantity) => {
-        alert("Has agregado " + quantity + " items al carrito.");
+        alert("Añadiste " + quantity + " un. de este producto.");
         setItemCount(quantity);
         addToCart(item, quantity);
     }
@@ -20,27 +29,33 @@ const ItemDetail = ({ item }) => {
         {
             item ?
             (
-                <Card style={{ width: '50rem' }} className='card-item-detail'>
-                    <Card.Img variant="top" src={item.image}/>
-                    <Card.Body className='card-body-item-detail'>
-                        <div>
-                            <Card.Title>{item.name}</Card.Title>
-                            <Card.Text>
-                                ${item.price}
-                            </Card.Text>
-                            {
-                                itemCount === 0 ?
-                                <ItemCount onAdd={onAdd} />
-                                : <Link to='/cart' style={{textDecoration: "none"}}><button>Ir al carrito</button></Link>
-                            }
-                        </div>
-                        <div>
-                            <Card.Text>
-                                {item.description}
-                            </Card.Text>
-                        </div>
-                    </Card.Body>
-                </Card>
+                <MDBCard style={{ maxWidth: '960px' }}>
+                    <MDBRow className='g-0'>
+                        <MDBCol md='4'>
+                            <MDBCardImage src={item.image} alt='...' fluid />
+                        </MDBCol>
+                        <MDBCol md='8'>
+                            <MDBCardBody>
+                                <MDBCardTitle>{item.name}</MDBCardTitle>
+                                <MDBCardText>
+                                    {item.description}
+                                </MDBCardText>
+                                <MDBCardText>
+                                    ${item.price}
+                                </MDBCardText>
+                                <MDBCardText>
+                                {
+                                    itemCount === 0 ?
+                                    <ItemCount onAdd={onAdd} />
+                                    : <Link to='/cart' style={{textDecoration: "none"}}>
+                                        <MDBBtn color='dark'>Ir al carrito</MDBBtn>
+                                    </Link>
+                                }
+                                </MDBCardText>
+                            </MDBCardBody>
+                        </MDBCol>
+                    </MDBRow>
+                </MDBCard>
             )
             : <><div><Spinner animation="border" size="sm" /></div><p>Cargando...</p></>
         }

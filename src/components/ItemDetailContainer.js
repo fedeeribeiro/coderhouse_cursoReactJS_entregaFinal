@@ -10,13 +10,13 @@ const ItemDetailContainer = () => {
     const { productId } = useParams();
 
     useEffect(() => {
-        customFetch(1000, products.find(item => item.id === parseInt(productId)))
+        customFetch(2000, products.find(item => item.id === parseInt(productId)))
             .then(result => setData(result))
             .catch(err => console.log(err))
     });
     
     return (
-        <div className="item-detail-container">
+        <div className="item-detail-container" style={{backgroundColor: '#eee'}}>
             <ItemDetail item={data} />
         </div>
     );

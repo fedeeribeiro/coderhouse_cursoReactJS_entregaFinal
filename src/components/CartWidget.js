@@ -1,17 +1,19 @@
-import { BsFillCartFill } from 'react-icons/bs'
-import Badge from 'react-bootstrap/Badge';
+import { MDBBadge, MDBIcon } from 'mdb-react-ui-kit';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from './CartContext';
 
 const CartWidget = () => {
-  const ctx = useContext(CartContext);
+  const context = useContext(CartContext);
   
   return (
     <>
-      <Link to={`/cart`} style={{ textDecoration: 'none', color: '#fff' }}>
-        <span><BsFillCartFill />
-          {(ctx.productsQtyInCart() !== 0) && <Badge bg="danger">{ctx.productsQtyInCart()}</Badge>}
+      <Link to={`/cart`} style={{fontSize: 12, textDecoration: 'none', color: '#fff' }}>
+        <span>
+          <MDBIcon fas icon='shopping-cart' size='lg' />
+            {(context.productsQtyInCart() !== 0) &&
+              <MDBBadge color='danger' notification pill>{context.productsQtyInCart()}</MDBBadge>
+            }
         </span>
       </Link>
     </>

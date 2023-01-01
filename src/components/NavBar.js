@@ -12,7 +12,7 @@ const NavBar = () => {
                 <Navbar.Brand>
                     <Link to='/' style={{ textDecoration: 'none', color: '#fff' }}>
                         <img src={require("../images/logo-csa.jpg")} alt={"Logo"} width="50" height="50"/>
-                        <span> Casa de Sorrentinos Antolini</span>
+                        <span className="business-name"> Casa de Sorrentinos Antolini</span>
                     </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
