@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import customFetch from "../utils/customFetch";
-import ItemDetail from "./ItemDetail.js";
-const { products } = require('../utils/products');
+import { fetchOneFromFirestore } from '../utils/fetchDataFromFirestore.js';
+import ItemDetail from './ItemDetail.js';
 
 const ItemDetailContainer = () => {
     const [data, setData] = useState({});
@@ -10,13 +9,13 @@ const ItemDetailContainer = () => {
     const { productId } = useParams();
 
     useEffect(() => {
-        customFetch(2000, products.find(item => item.id === parseInt(productId)))
-            .then(result => setData(result))
-            .catch(err => console.log(err))
-    });
+        fetchOneFromFirestore(productId)
+        .then(result => setData(result))
+        .catch(error => console.log(error))
+    }, [productId]);
     
     return (
-        <div className="item-detail-container" style={{backgroundColor: '#eee'}}>
+        <div className='item-detail-container' style={{backgroundColor: '#eee'}}>
             <ItemDetail item={data} />
         </div>
     );

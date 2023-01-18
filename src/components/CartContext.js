@@ -1,4 +1,6 @@
-import { createContext, useState } from "react";
+import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
+import { createContext, useState } from 'react';
+import { db } from '../utils/firebaseConfig';
 
 export const CartContext = createContext();
 
@@ -21,6 +23,7 @@ const CartContextProvider = ({children}) => {
             ]);
         } else {
             found.qty += quantity;
+            found.total_price += quantity * found.unit_price;
             setCartList([
                 ...cartList
             ]);
@@ -46,14 +49,52 @@ const CartContextProvider = ({children}) => {
         return prices.reduce(((acc, productTotalPrice) => acc + productTotalPrice), 0);
     }
 
+    const createOrder = () => {
+        const order = {
+            buyer: {
+                name: 'Lionel Messi',
+                email: 'lionelmessi@coderhouse.com',
+                phone: 5491194032854
+            },
+            date: serverTimestamp(),
+            items: cartList.map(item => ({
+                id: item.id,
+                title: item.name,
+                price: item.unit_price,
+                qty: item.qty
+            })),
+            total: orderTotalPrice()
+        }
+
+        const setDocInFirestore = async () => {
+            const newOrderRef = doc(collection(db, 'orders'));
+            await setDoc(newOrderRef, order);
+            return newOrderRef
+        }
+        
+        setDocInFirestore()
+        .then(result => {
+            alert('La orden con id:' + result.id + ' ha sido creada exitosamente.');
+            cartList.forEach(async(item) => {
+                const itemRef = doc(db, 'products', item.id);
+                await updateDoc(itemRef, {
+                    stock: increment(-item.qty)
+                })
+            });
+            deleteAll()
+        })
+        .catch(error => console.log(error))
+    }
+
     return (
         <CartContext.Provider value={{
             cartList,
             addToCart,
+            createOrder,
             deleteThis,
             deleteAll,
-            productsQtyInCart,
-            orderTotalPrice
+            orderTotalPrice,
+            productsQtyInCart
         }}>
             {children}
         </CartContext.Provider>

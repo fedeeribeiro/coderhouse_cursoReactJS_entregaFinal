@@ -2,11 +2,6 @@ body {
     font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
-.navbar-css{
-    background-color: #333333;
-    overflow-x: hidden;
-}
-
 .item-list-container{
     display: flex;
     padding: 3rem;
@@ -30,8 +25,70 @@ body {
     grid-template-columns: repeat(2, 1fr);
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 408px) {
+    .business-name{
+        font-size: 1.15rem;
+    }
+}
+@media screen and (max-width: 387px) {
     .business-name{
         font-size: 1rem;
+    }
+}
+@media screen and (max-width: 357px) {
+    .business-name{
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 315px) {
+    .business-name{
+        font-size: 0.7rem;
+    }
+}
+@media screen and (max-width: 295px) {
+    .business-name{
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .sm-cart-col{
+        max-width:80px!important;
+    }
+    .sm-cart-col-product-name{
+        max-width:80px!important;
+    }
+    .sm-cart-col-delete-btn{
+        max-width:40px!important;
+    }
+    .cart-product-name{
+        font-size: 0.6em!important;
+    }
+    .cart-product-units{
+        font-size: 0.7em!important;
+    }
+    .cart-product-price{
+        font-size: 0.8em!important;
+    }
+}
+@media screen and (max-width: 366px) {
+
+    .sm-cart-col{
+        max-width:64px!important;
+    }
+    .sm-cart-col-product-name{
+        max-width:64px!important;
+    }
+    .sm-cart-col-delete-btn{
+        max-width:32px!important;
+    }
+    .cart-product-name{
+        font-size: 0.5em!important;
+    }
+    .cart-product-units{
+        font-size: 0.5em!important;
+    }
+    .cart-product-price{
+        font-size: 0.5em!important;
     }
 }

@@ -7,7 +7,8 @@ import {
     MDBCardBody,
     MDBCardImage,
     MDBRow,
-    MDBCol
+    MDBCol,
+    MDBTypography
   } from 'mdb-react-ui-kit';
 import { CartContext } from './CartContext';
 import ItemCount from './ItemCount';
@@ -19,7 +20,7 @@ const ItemDetail = ({ item }) => {
     const { addToCart } = useContext(CartContext);
 
     const onAdd = (quantity) => {
-        alert("Añadiste " + quantity + " un. de este producto.");
+        alert('Añadiste ' + quantity + ' un. de este producto.');
         setItemCount(quantity);
         addToCart(item, quantity);
     }
@@ -32,7 +33,7 @@ const ItemDetail = ({ item }) => {
                 <MDBCard style={{ maxWidth: '960px' }}>
                     <MDBRow className='g-0'>
                         <MDBCol md='4'>
-                            <MDBCardImage src={item.image} alt='...' fluid />
+                            <MDBCardImage src={item.image} alt='...' fluid/>
                         </MDBCol>
                         <MDBCol md='8'>
                             <MDBCardBody>
@@ -41,13 +42,15 @@ const ItemDetail = ({ item }) => {
                                     {item.description}
                                 </MDBCardText>
                                 <MDBCardText>
-                                    ${item.price}
+                                    <MDBTypography tag='h6' className='mb-0'>
+                                        ${item.price}
+                                    </MDBTypography>
                                 </MDBCardText>
                                 <MDBCardText>
                                 {
                                     itemCount === 0 ?
-                                    <ItemCount onAdd={onAdd} />
-                                    : <Link to='/cart' style={{textDecoration: "none"}}>
+                                    <ItemCount onAdd={onAdd} stock={item.stock} />
+                                    : <Link to='/cart' style={{textDecoration: 'none'}}>
                                         <MDBBtn color='dark'>Ir al carrito</MDBBtn>
                                     </Link>
                                 }
@@ -57,7 +60,7 @@ const ItemDetail = ({ item }) => {
                     </MDBRow>
                 </MDBCard>
             )
-            : <><div><Spinner animation="border" size="sm" /></div><p>Cargando...</p></>
+            : <><div><Spinner animation='border' size='sm' /></div></>
         }
         </>
     );

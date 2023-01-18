@@ -17,7 +17,7 @@ const Item = ({ id, name, price, image }) => {
                 <MDBCardText>
                     ${price}
                 </MDBCardText>
-                <MDBBtn color="dark">
+                <MDBBtn color='dark'>
                     <Link to={`/item/${id}`} style={{ textDecoration: 'none', color: '#fff' }}>
                         Ver producto
                     </Link>
