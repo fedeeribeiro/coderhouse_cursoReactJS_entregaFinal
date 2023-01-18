@@ -1,4 +1,4 @@
-# Título del Proyecto
+# e-commerce - Casa de pastas - Proyecto final de ReactJS para Coderhouse
 
 Proyecto final de e-commerce de casa de pastas para curso de ReactJS de Coderhouse.
 
@@ -24,25 +24,14 @@ Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) 
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
+* **Federico Edgardo Ribeiro** - *Estudiante de Ingeniería en Informática y desarrollo full stack* - [fedeeribeiro](https://github.com/fedeeribeiro)
 
 ## Licencia 📄
 
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+Este proyecto está a disposición de quien quiera para utilizar con fines académicos.
 
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
 * Da las gracias públicamente 🤓.
-* Dona con cripto a esta dirección: `0xf253fc233333078436d111175e5a76a649890000`
-* etc.
 
-
-
----
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
