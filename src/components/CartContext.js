@@ -1,5 +1,6 @@
 import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
 import { createContext, useState } from 'react';
+import { toast } from 'react-toastify';
 import { db } from '../utils/firebaseConfig';
 
 export const CartContext = createContext();
@@ -74,7 +75,6 @@ const CartContextProvider = ({children}) => {
         
         setDocInFirestore()
         .then(result => {
-            alert('La orden con id:' + result.id + ' ha sido creada exitosamente.');
             cartList.forEach(async(item) => {
                 const itemRef = doc(db, 'products', item.id);
                 await updateDoc(itemRef, {
@@ -82,6 +82,7 @@ const CartContextProvider = ({children}) => {
                 })
             });
             deleteAll()
+            toast.success('Tu orden ha sido creada exitosamente con el id: ' + result.id);
         })
         .catch(error => console.log(error))
     }

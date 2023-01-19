@@ -14,22 +14,24 @@ import { CartContext } from './CartContext';
 import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ItemDetail = ({ item }) => {
     const [itemCount, setItemCount] = useState(0);
     const { addToCart } = useContext(CartContext);
 
-    const onAdd = (quantity) => {
-        alert('Añadiste ' + quantity + ' un. de este producto.');
+    const addToCartAndNotify = (quantity) => {
         setItemCount(quantity);
         addToCart(item, quantity);
+        toast.success('Añadiste ' + quantity + ' unidades de ' + item.name + ' al carrito.')
     }
 
     return (
         <>
         {
             item ?
-            (
+            <>
+                <ToastContainer />
                 <MDBCard style={{ maxWidth: '960px' }}>
                     <MDBRow className='g-0'>
                         <MDBCol md='4'>
@@ -49,17 +51,20 @@ const ItemDetail = ({ item }) => {
                                 <MDBCardText>
                                 {
                                     itemCount === 0 ?
-                                    <ItemCount onAdd={onAdd} stock={item.stock} />
-                                    : <Link to='/cart' style={{textDecoration: 'none'}}>
-                                        <MDBBtn color='dark'>Ir al carrito</MDBBtn>
-                                    </Link>
+                                    <ItemCount onAdd={addToCartAndNotify} stock={item.stock} />
+                                    : 
+                                    <>
+                                        <Link to='/cart' style={{textDecoration: 'none'}}>
+                                            <MDBBtn color='dark'>Ir al carrito</MDBBtn>
+                                        </Link>
+                                    </>
                                 }
                                 </MDBCardText>
                             </MDBCardBody>
                         </MDBCol>
                     </MDBRow>
                 </MDBCard>
-            )
+            </>
             : <><div><Spinner animation='border' size='sm' /></div></>
         }
         </>

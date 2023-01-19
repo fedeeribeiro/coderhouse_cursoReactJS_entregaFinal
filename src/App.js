@@ -6,6 +6,7 @@ import CartContextProvider from './components/CartContext';
 import Cart from './components/Cart';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (

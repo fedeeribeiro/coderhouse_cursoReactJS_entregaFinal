@@ -12,12 +12,14 @@ import {
     MDBRow,
     MDBTypography,
 } from 'mdb-react-ui-kit';
+import { ToastContainer } from 'react-toastify';
 
 const Cart = () => {
     const { cartList, createOrder, deleteThis, deleteAll, orderTotalPrice } = useContext(CartContext);
 
     return (
         <section className='h-100' style={{ backgroundColor: '#eee' }}>
+            <ToastContainer />
             <MDBContainer className='py-5 h-100'>
                 <MDBRow className='justify-content-center align-items-center h-100'>
                     <MDBCol md='10'>
@@ -72,42 +74,42 @@ const Cart = () => {
                         {
                             (cartList.length !== 0) && (
                                 <>
-                                <MDBCard className='mb-5'>
-                                    <MDBCardBody className="p-4">
-                                        <div className="float-end">
-                                        <p className="mb-0 me-5 d-flex justify-content-end">
-                                            <span className="small text-muted me-2">Subtotal:</span>
-                                            <MDBTypography tag="h6" className="mb-0">
-                                                ${orderTotalPrice()}
-                                            </MDBTypography>
-                                        </p>
-                                        <p className="mb-0 me-5 d-flex justify-content-end">
-                                            <span className="small text-muted me-2">Costo de envío:</span>
-                                            <MDBTypography tag="h6" className="mb-0">
-                                                Gratis
-                                            </MDBTypography>
-                                        </p>
-                                        <hr/>
-                                        <p className="mb-0 me-5 d-flex justify-content-end">
-                                            <span className="small text-muted me-2">Total:</span>
-                                            <MDBTypography tag="h6" className="mb-0">
-                                                ${orderTotalPrice()}
-                                            </MDBTypography>
-                                        </p>
-                                        </div>
-                                    </MDBCardBody>
-                                </MDBCard>
-                                <MDBCard className="rounded-3 mb-4">
-                                    <MDBCardBody className="p-4">
-                                        <MDBRow className="justify-content-between align-items-center">
-                                            <MDBCol>
-                                                <MDBBtn color="success" block size="lg" onClick={createOrder}>
-                                                    Comprar
-                                                </MDBBtn>
-                                            </MDBCol>
-                                        </MDBRow>
-                                    </MDBCardBody>
-                                </MDBCard>
+                                    <MDBCard className='mb-5'>
+                                        <MDBCardBody className="p-4">
+                                            <div className="float-end">
+                                            <p className="mb-0 me-5 d-flex justify-content-end">
+                                                <span className="small text-muted me-2">Subtotal:</span>
+                                                <MDBTypography tag="h6" className="mb-0">
+                                                    ${orderTotalPrice()}
+                                                </MDBTypography>
+                                            </p>
+                                            <p className="mb-0 me-5 d-flex justify-content-end">
+                                                <span className="small text-muted me-2">Costo de envío:</span>
+                                                <MDBTypography tag="h6" className="mb-0">
+                                                    Gratis
+                                                </MDBTypography>
+                                            </p>
+                                            <hr/>
+                                            <p className="mb-0 me-5 d-flex justify-content-end">
+                                                <span className="small text-muted me-2">Total:</span>
+                                                <MDBTypography tag="h6" className="mb-0">
+                                                    ${orderTotalPrice()}
+                                                </MDBTypography>
+                                            </p>
+                                            </div>
+                                        </MDBCardBody>
+                                    </MDBCard>
+                                    <MDBCard className="rounded-3 mb-4">
+                                        <MDBCardBody className="p-4">
+                                            <MDBRow className="justify-content-between align-items-center">
+                                                <MDBCol>
+                                                    <MDBBtn color="success" block size="lg" onClick={createOrder}>
+                                                        Comprar
+                                                    </MDBBtn>
+                                                </MDBCol>
+                                            </MDBRow>
+                                        </MDBCardBody>
+                                    </MDBCard>
                                 </>
                             )
                         }
