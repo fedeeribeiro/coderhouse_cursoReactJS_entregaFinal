@@ -92,3 +92,7 @@ body {
         font-size: 0.5em!important;
     }
 }
+
+.Toastify__toast-theme--colored.Toastify__toast--success {
+    background-color: #157347 !important;
+}

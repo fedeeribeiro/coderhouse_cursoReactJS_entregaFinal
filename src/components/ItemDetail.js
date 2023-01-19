@@ -23,7 +23,11 @@ const ItemDetail = ({ item }) => {
     const addToCartAndNotify = (quantity) => {
         setItemCount(quantity);
         addToCart(item, quantity);
-        toast.success('Añadiste ' + quantity + ' unidades de ' + item.name + ' al carrito.')
+        if(quantity === 1){
+            toast.success('Añadiste ' + quantity + ' unidad de ' + item.name + ' al carrito.', {theme: 'colored'})
+        }else{
+            toast.success('Añadiste ' + quantity + ' unidades de ' + item.name + ' al carrito.', {theme: 'colored'})
+        }
     }
 
     return (

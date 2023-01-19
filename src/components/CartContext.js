@@ -81,8 +81,8 @@ const CartContextProvider = ({children}) => {
                     stock: increment(-item.qty)
                 })
             });
-            deleteAll()
-            toast.success('Tu orden ha sido creada exitosamente con el id: ' + result.id);
+            deleteAll();
+            toast.success('Tu orden ha sido creada exitosamente con el id: ' + result.id, {theme: 'colored'})
         })
         .catch(error => console.log(error))
     }
