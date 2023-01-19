@@ -94,5 +94,9 @@ body {
 }
 
 .Toastify__toast-theme--colored.Toastify__toast--success {
-    background-color: #157347 !important;
+    background-color: #157347 !important
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+    background-color: #BB2D3B !important
 }
