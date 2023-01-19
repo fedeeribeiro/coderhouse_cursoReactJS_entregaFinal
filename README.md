@@ -6,6 +6,8 @@ Proyecto final de e-commerce de casa de pastas para curso de ReactJS de Coderhou
 
 Este es un gif capturando la funcionalidad del proyecto.
 
+![gif-entregafinal2](https://user-images.githubusercontent.com/62121011/213324663-67be410e-eb75-49e7-91ce-4d23dfecf6e0.gif)
+
 ## Despliegue 📦
 
 Aquí incluiré un link cuando haga el deploy del proyecto para que se pueda probar la funcionalidad.
